@@ -164,3 +164,21 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
+
+/* novas estilizações */
+.pokemon-datail-div {
+    background-color: rgba(128 , 128, 128, 0.9);
+    display: none;
+    border: .4rem solid #000;
+    z-index: 999;
+    padding: .652rem;
+    border-radius: .625rem;
+    margin: auto 0;
+    position: fixed;
+    top: 25%;
+    left: 40%;
+}
+
+.pokemon-datail-div img {
+    height: 10rem;
+}

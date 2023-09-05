@@ -33,3 +33,32 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
+
+//novas implementações
+function carregaDetailsPokemon(pokemon_id){
+    
+    exibirDetalhes();
+    fetch("https://pokeapi.co/api/v2/pokemon/" + pokemon_id)
+    .then((response) => response.json())
+    .then( (myJson) => {
+        document.getElementById(myJson.name).style.display = "block";
+        document.getElementById(myJson.name).innerHTML = 
+        `
+        <h3>${myJson.name}</h3>
+        <p>Experience -> ${myJson.base_experience}</p>
+        <p>Height -> ${myJson.height}</p>
+        <p>Weight -> ${myJson.weight}</p>
+        <img src="${myJson.sprites.other.dream_world.front_default}"
+            alt="${myJson.name}">
+
+        <button type="button" onclick="ocultarDetalhes('${myJson.name}')">
+            Close details
+        </button>
+        `;
+    })
+}
+
+
+function ocultarDetalhes(myJson_name){
+    document.getElementById(myJson_name).style.display = "none";
+}
